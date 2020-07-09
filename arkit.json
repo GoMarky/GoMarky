@@ -1,0 +1,43 @@
+{
+  "$schema": "https://arkit.js.org/schema.json",
+  "excludePatterns": [
+    "test/**",
+    "tests/**",
+    "**/*.test.*",
+    "**/*.spec.*"
+  ],
+  "components": [
+    {
+      "type": "Dependency",
+      "patterns": [
+        "node_modules/*"
+      ]
+    },
+    {
+      "type": "Component",
+      "patterns": [
+        "**/*.ts",
+        "**/*.tsx"
+      ]
+    }
+  ],
+  "output": [
+    {
+      "path": "uml.svg",
+      "groups": [
+        {
+          "first": true,
+          "components": [
+            "Component"
+          ]
+        },
+        {
+          "type": "Dependencies",
+          "components": [
+            "Dependency"
+          ]
+        }
+      ]
+    }
+  ]
+}
