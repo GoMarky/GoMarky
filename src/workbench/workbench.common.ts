@@ -1,1 +1,0 @@
-import '@/workbench/common/contributions';
