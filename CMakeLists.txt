@@ -102,6 +102,7 @@ target_link_libraries(gomarky
         general fmt spdlog::spdlog # It is possible to link some libraries for debug or optimized builds only
         #debug DEBUGLIBS
         #optimized RELEASELIBS
+        Qt5::Widgets
 )
 
 # If you need platform specific files to be compiled and do not want to add a new target for this,
@@ -181,6 +182,9 @@ if(BP_BUILD_TESTS)
         @ONLY
     )
 endif()
+
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
+find_package(Qt5Widgets REQUIRED)
 
 #############
 ## Doxygen ##

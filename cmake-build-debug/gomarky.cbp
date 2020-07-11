@@ -5,7 +5,7 @@
 		<Option title="gomarky"/>
 		<Option makefile_is_custom="1"/>
 		<Option compiler="gcc"/>
-		<Option virtualFolders="CMake Files\;CMake Files\external\;CMake Files\external\fmt\;CMake Files\external\fmt\support\;CMake Files\external\fmt\support\cmake\;CMake Files\external\spdlog\;CMake Files\external\spdlog\cmake\;CMake Files\cmake\;"/>
+		<Option virtualFolders="CMake Files\;CMake Files\external\;CMake Files\external\fmt\;CMake Files\external\fmt\support\;CMake Files\external\fmt\support\cmake\;CMake Files\external\spdlog\;CMake Files\external\spdlog\cmake\;CMake Files\cmake\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\..\;CMake Files\..\..\..\..\Qt\;CMake Files\..\..\..\..\Qt\5.15.0\;CMake Files\..\..\..\..\Qt\5.15.0\clang_64\;CMake Files\..\..\..\..\Qt\5.15.0\clang_64\lib\;CMake Files\..\..\..\..\Qt\5.15.0\clang_64\lib\cmake\;CMake Files\..\..\..\..\Qt\5.15.0\clang_64\lib\cmake\Qt5Widgets\;CMake Files\..\..\..\..\Qt\5.15.0\clang_64\lib\cmake\Qt5Gui\;CMake Files\..\..\..\..\Qt\5.15.0\clang_64\lib\cmake\Qt5Core\;"/>
 		<Build>
 			<Target title="all">
 				<Option working_dir="/Users/teodordre/Documents/reps/gomarky/gomarky/cmake-build-debug"/>
@@ -136,8 +136,19 @@
 					<Add option="-DFMT_LOCALE"/>
 					<Add option="-DSPDLOG_COMPILED_LIB"/>
 					<Add option="-DSPDLOG_FMT_EXTERNAL"/>
+					<Add option="-DQT_WIDGETS_LIB"/>
+					<Add option="-DQT_GUI_LIB"/>
+					<Add option="-DQT_CORE_LIB"/>
 					<Add directory="/Users/teodordre/Documents/reps/gomarky/gomarky/external/spdlog/include"/>
 					<Add directory="/Users/teodordre/Documents/reps/gomarky/gomarky/external/fmt/include"/>
+					<Add directory="/Users/teodordre/Qt/5.15.0/clang_64/lib/QtWidgets.framework"/>
+					<Add directory="/Users/teodordre/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers"/>
+					<Add directory="/Users/teodordre/Qt/5.15.0/clang_64/lib/QtGui.framework"/>
+					<Add directory="/Users/teodordre/Qt/5.15.0/clang_64/lib/QtGui.framework/Headers"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/OpenGL.framework/Headers"/>
+					<Add directory="/Users/teodordre/Qt/5.15.0/clang_64/lib/QtCore.framework"/>
+					<Add directory="/Users/teodordre/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers"/>
+					<Add directory="/Users/teodordre/Qt/5.15.0/clang_64/./mkspecs/macx-clang"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
 					<Add directory="/usr/local/include"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/11.0.0/include"/>
@@ -163,8 +174,19 @@
 					<Add option="-DFMT_LOCALE"/>
 					<Add option="-DSPDLOG_COMPILED_LIB"/>
 					<Add option="-DSPDLOG_FMT_EXTERNAL"/>
+					<Add option="-DQT_WIDGETS_LIB"/>
+					<Add option="-DQT_GUI_LIB"/>
+					<Add option="-DQT_CORE_LIB"/>
 					<Add directory="/Users/teodordre/Documents/reps/gomarky/gomarky/external/spdlog/include"/>
 					<Add directory="/Users/teodordre/Documents/reps/gomarky/gomarky/external/fmt/include"/>
+					<Add directory="/Users/teodordre/Qt/5.15.0/clang_64/lib/QtWidgets.framework"/>
+					<Add directory="/Users/teodordre/Qt/5.15.0/clang_64/lib/QtWidgets.framework/Headers"/>
+					<Add directory="/Users/teodordre/Qt/5.15.0/clang_64/lib/QtGui.framework"/>
+					<Add directory="/Users/teodordre/Qt/5.15.0/clang_64/lib/QtGui.framework/Headers"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/OpenGL.framework/Headers"/>
+					<Add directory="/Users/teodordre/Qt/5.15.0/clang_64/lib/QtCore.framework"/>
+					<Add directory="/Users/teodordre/Qt/5.15.0/clang_64/lib/QtCore.framework/Headers"/>
+					<Add directory="/Users/teodordre/Qt/5.15.0/clang_64/./mkspecs/macx-clang"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
 					<Add directory="/usr/local/include"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/11.0.0/include"/>
@@ -640,6 +662,102 @@
 		</Unit>
 		<Unit filename="/Users/teodordre/Documents/reps/gomarky/gomarky/cmake/gomarkyConfig.cmake.in">
 			<Option virtualFolder="CMake Files\cmake\"/>
+		</Unit>
+		<Unit filename="/Users/teodordre/Documents/reps/gomarky/gomarky/../../../../Qt/5.15.0/clang_64/lib/cmake/Qt5Widgets/Qt5WidgetsConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\Qt\5.15.0\clang_64\lib\cmake\Qt5Widgets\"/>
+		</Unit>
+		<Unit filename="/Users/teodordre/Documents/reps/gomarky/gomarky/../../../../Qt/5.15.0/clang_64/lib/cmake/Qt5Widgets/Qt5WidgetsConfigExtras.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\Qt\5.15.0\clang_64\lib\cmake\Qt5Widgets\"/>
+		</Unit>
+		<Unit filename="/Users/teodordre/Documents/reps/gomarky/gomarky/../../../../Qt/5.15.0/clang_64/lib/cmake/Qt5Widgets/Qt5WidgetsConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\Qt\5.15.0\clang_64\lib\cmake\Qt5Widgets\"/>
+		</Unit>
+		<Unit filename="/Users/teodordre/Documents/reps/gomarky/gomarky/../../../../Qt/5.15.0/clang_64/lib/cmake/Qt5Widgets/Qt5WidgetsMacros.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\Qt\5.15.0\clang_64\lib\cmake\Qt5Widgets\"/>
+		</Unit>
+		<Unit filename="/Users/teodordre/Documents/reps/gomarky/gomarky/../../../../Qt/5.15.0/clang_64/lib/cmake/Qt5Widgets/Qt5Widgets_QMacStylePlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\Qt\5.15.0\clang_64\lib\cmake\Qt5Widgets\"/>
+		</Unit>
+		<Unit filename="/Users/teodordre/Documents/reps/gomarky/gomarky/../../../../Qt/5.15.0/clang_64/lib/cmake/Qt5Gui/Qt5GuiConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\Qt\5.15.0\clang_64\lib\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/Users/teodordre/Documents/reps/gomarky/gomarky/../../../../Qt/5.15.0/clang_64/lib/cmake/Qt5Gui/Qt5GuiConfigExtras.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\Qt\5.15.0\clang_64\lib\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/Users/teodordre/Documents/reps/gomarky/gomarky/../../../../Qt/5.15.0/clang_64/lib/cmake/Qt5Gui/Qt5GuiConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\Qt\5.15.0\clang_64\lib\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/Users/teodordre/Documents/reps/gomarky/gomarky/../../../../Qt/5.15.0/clang_64/lib/cmake/Qt5Gui/Qt5Gui_QCocoaIntegrationPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\Qt\5.15.0\clang_64\lib\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/Users/teodordre/Documents/reps/gomarky/gomarky/../../../../Qt/5.15.0/clang_64/lib/cmake/Qt5Gui/Qt5Gui_QGifPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\Qt\5.15.0\clang_64\lib\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/Users/teodordre/Documents/reps/gomarky/gomarky/../../../../Qt/5.15.0/clang_64/lib/cmake/Qt5Gui/Qt5Gui_QICNSPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\Qt\5.15.0\clang_64\lib\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/Users/teodordre/Documents/reps/gomarky/gomarky/../../../../Qt/5.15.0/clang_64/lib/cmake/Qt5Gui/Qt5Gui_QICOPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\Qt\5.15.0\clang_64\lib\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/Users/teodordre/Documents/reps/gomarky/gomarky/../../../../Qt/5.15.0/clang_64/lib/cmake/Qt5Gui/Qt5Gui_QJpegPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\Qt\5.15.0\clang_64\lib\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/Users/teodordre/Documents/reps/gomarky/gomarky/../../../../Qt/5.15.0/clang_64/lib/cmake/Qt5Gui/Qt5Gui_QMacHeifPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\Qt\5.15.0\clang_64\lib\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/Users/teodordre/Documents/reps/gomarky/gomarky/../../../../Qt/5.15.0/clang_64/lib/cmake/Qt5Gui/Qt5Gui_QMacJp2Plugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\Qt\5.15.0\clang_64\lib\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/Users/teodordre/Documents/reps/gomarky/gomarky/../../../../Qt/5.15.0/clang_64/lib/cmake/Qt5Gui/Qt5Gui_QMinimalIntegrationPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\Qt\5.15.0\clang_64\lib\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/Users/teodordre/Documents/reps/gomarky/gomarky/../../../../Qt/5.15.0/clang_64/lib/cmake/Qt5Gui/Qt5Gui_QOffscreenIntegrationPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\Qt\5.15.0\clang_64\lib\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/Users/teodordre/Documents/reps/gomarky/gomarky/../../../../Qt/5.15.0/clang_64/lib/cmake/Qt5Gui/Qt5Gui_QSvgIconPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\Qt\5.15.0\clang_64\lib\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/Users/teodordre/Documents/reps/gomarky/gomarky/../../../../Qt/5.15.0/clang_64/lib/cmake/Qt5Gui/Qt5Gui_QSvgPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\Qt\5.15.0\clang_64\lib\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/Users/teodordre/Documents/reps/gomarky/gomarky/../../../../Qt/5.15.0/clang_64/lib/cmake/Qt5Gui/Qt5Gui_QTgaPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\Qt\5.15.0\clang_64\lib\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/Users/teodordre/Documents/reps/gomarky/gomarky/../../../../Qt/5.15.0/clang_64/lib/cmake/Qt5Gui/Qt5Gui_QTiffPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\Qt\5.15.0\clang_64\lib\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/Users/teodordre/Documents/reps/gomarky/gomarky/../../../../Qt/5.15.0/clang_64/lib/cmake/Qt5Gui/Qt5Gui_QTuioTouchPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\Qt\5.15.0\clang_64\lib\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/Users/teodordre/Documents/reps/gomarky/gomarky/../../../../Qt/5.15.0/clang_64/lib/cmake/Qt5Gui/Qt5Gui_QVirtualKeyboardPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\Qt\5.15.0\clang_64\lib\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/Users/teodordre/Documents/reps/gomarky/gomarky/../../../../Qt/5.15.0/clang_64/lib/cmake/Qt5Gui/Qt5Gui_QWbmpPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\Qt\5.15.0\clang_64\lib\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/Users/teodordre/Documents/reps/gomarky/gomarky/../../../../Qt/5.15.0/clang_64/lib/cmake/Qt5Gui/Qt5Gui_QWebGLIntegrationPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\Qt\5.15.0\clang_64\lib\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/Users/teodordre/Documents/reps/gomarky/gomarky/../../../../Qt/5.15.0/clang_64/lib/cmake/Qt5Gui/Qt5Gui_QWebpPlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\Qt\5.15.0\clang_64\lib\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/Users/teodordre/Documents/reps/gomarky/gomarky/../../../../Qt/5.15.0/clang_64/lib/cmake/Qt5Gui/Qt5Gui_QXdgDesktopPortalThemePlugin.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\Qt\5.15.0\clang_64\lib\cmake\Qt5Gui\"/>
+		</Unit>
+		<Unit filename="/Users/teodordre/Documents/reps/gomarky/gomarky/../../../../Qt/5.15.0/clang_64/lib/cmake/Qt5Core/Qt5CoreConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\Qt\5.15.0\clang_64\lib\cmake\Qt5Core\"/>
+		</Unit>
+		<Unit filename="/Users/teodordre/Documents/reps/gomarky/gomarky/../../../../Qt/5.15.0/clang_64/lib/cmake/Qt5Core/Qt5CoreConfigExtras.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\Qt\5.15.0\clang_64\lib\cmake\Qt5Core\"/>
+		</Unit>
+		<Unit filename="/Users/teodordre/Documents/reps/gomarky/gomarky/../../../../Qt/5.15.0/clang_64/lib/cmake/Qt5Core/Qt5CoreConfigExtrasMkspecDir.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\Qt\5.15.0\clang_64\lib\cmake\Qt5Core\"/>
+		</Unit>
+		<Unit filename="/Users/teodordre/Documents/reps/gomarky/gomarky/../../../../Qt/5.15.0/clang_64/lib/cmake/Qt5Core/Qt5CoreConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\Qt\5.15.0\clang_64\lib\cmake\Qt5Core\"/>
+		</Unit>
+		<Unit filename="/Users/teodordre/Documents/reps/gomarky/gomarky/../../../../Qt/5.15.0/clang_64/lib/cmake/Qt5Core/Qt5CoreMacros.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\Qt\5.15.0\clang_64\lib\cmake\Qt5Core\"/>
 		</Unit>
 	</Project>
 </CodeBlocks_project_file>
