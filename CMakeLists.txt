@@ -90,7 +90,7 @@ find_lto(CXX)
 #  gomarky executable  #
 #==========================#
 
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14")
 
 find_package(Qt5Widgets REQUIRED)
 
