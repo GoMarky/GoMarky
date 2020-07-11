@@ -70,7 +70,7 @@ install_manifest.txt
 CTestTestfile.cmake
 Testing/
 
-# c-make-build-debug/
+c-make-build-debug/
 
 # Object files
 *.o
