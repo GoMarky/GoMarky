@@ -75,6 +75,7 @@
 				<Option compiler="gcc"/>
 				<Compiler>
 					<Add option="-DFMT_LOCALE"/>
+					<Add directory="/Users/teodordre/Documents/reps/gomarky/gomarky/cmake-build-debug/bp_foo_autogen/include"/>
 					<Add directory="/Users/teodordre/Documents/reps/gomarky/gomarky/include"/>
 					<Add directory="/Users/teodordre/Documents/reps/gomarky/gomarky/external/fmt/include"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
@@ -99,6 +100,7 @@
 				<Option compiler="gcc"/>
 				<Compiler>
 					<Add option="-DFMT_LOCALE"/>
+					<Add directory="/Users/teodordre/Documents/reps/gomarky/gomarky/cmake-build-debug/bp_foo_autogen/include"/>
 					<Add directory="/Users/teodordre/Documents/reps/gomarky/gomarky/include"/>
 					<Add directory="/Users/teodordre/Documents/reps/gomarky/gomarky/external/fmt/include"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
@@ -139,6 +141,7 @@
 					<Add option="-DQT_WIDGETS_LIB"/>
 					<Add option="-DQT_GUI_LIB"/>
 					<Add option="-DQT_CORE_LIB"/>
+					<Add directory="/Users/teodordre/Documents/reps/gomarky/gomarky/cmake-build-debug/gomarky_autogen/include"/>
 					<Add directory="/Users/teodordre/Documents/reps/gomarky/gomarky/external/spdlog/include"/>
 					<Add directory="/Users/teodordre/Documents/reps/gomarky/gomarky/external/fmt/include"/>
 					<Add directory="/Users/teodordre/Qt/5.15.0/clang_64/lib/QtWidgets.framework"/>
@@ -177,6 +180,7 @@
 					<Add option="-DQT_WIDGETS_LIB"/>
 					<Add option="-DQT_GUI_LIB"/>
 					<Add option="-DQT_CORE_LIB"/>
+					<Add directory="/Users/teodordre/Documents/reps/gomarky/gomarky/cmake-build-debug/gomarky_autogen/include"/>
 					<Add directory="/Users/teodordre/Documents/reps/gomarky/gomarky/external/spdlog/include"/>
 					<Add directory="/Users/teodordre/Documents/reps/gomarky/gomarky/external/fmt/include"/>
 					<Add directory="/Users/teodordre/Qt/5.15.0/clang_64/lib/QtWidgets.framework"/>
@@ -196,6 +200,26 @@
 				</Compiler>
 				<MakeCommands>
 					<Build command="/usr/bin/make -j8 -f &quot;/Users/teodordre/Documents/reps/gomarky/gomarky/cmake-build-debug/Makefile&quot;  VERBOSE=1 gomarky/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/teodordre/Documents/reps/gomarky/gomarky/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/teodordre/Documents/reps/gomarky/gomarky/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/teodordre/Documents/reps/gomarky/gomarky/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="bp_foo_autogen">
+				<Option working_dir="/Users/teodordre/Documents/reps/gomarky/gomarky/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/teodordre/Documents/reps/gomarky/gomarky/cmake-build-debug/Makefile&quot;  VERBOSE=1 bp_foo_autogen"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/teodordre/Documents/reps/gomarky/gomarky/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/teodordre/Documents/reps/gomarky/gomarky/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/teodordre/Documents/reps/gomarky/gomarky/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="gomarky_autogen">
+				<Option working_dir="/Users/teodordre/Documents/reps/gomarky/gomarky/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/teodordre/Documents/reps/gomarky/gomarky/cmake-build-debug/Makefile&quot;  VERBOSE=1 gomarky_autogen"/>
 					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/teodordre/Documents/reps/gomarky/gomarky/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
 					<Clean command="/usr/bin/make -j8 -f &quot;/Users/teodordre/Documents/reps/gomarky/gomarky/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/teodordre/Documents/reps/gomarky/gomarky/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
@@ -294,6 +318,12 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/Users/teodordre/Documents/reps/gomarky/gomarky/cmake-build-debug/bp_foo_autogen/mocs_compilation.cpp">
+			<Option target="bp_foo"/>
+		</Unit>
+		<Unit filename="/Users/teodordre/Documents/reps/gomarky/gomarky/cmake-build-debug/gomarky_autogen/mocs_compilation.cpp">
+			<Option target="gomarky"/>
+		</Unit>
 		<Unit filename="/Users/teodordre/Documents/reps/gomarky/gomarky/external/fmt/ChangeLog.rst">
 			<Option target="fmt"/>
 		</Unit>
@@ -620,6 +650,12 @@
 		</Unit>
 		<Unit filename="/Users/teodordre/Documents/reps/gomarky/gomarky/source/foo.cpp">
 			<Option target="bp_foo"/>
+		</Unit>
+		<Unit filename="/Users/teodordre/Documents/reps/gomarky/gomarky/source/gm/workbench/counter/counter.cpp">
+			<Option target="gomarky"/>
+		</Unit>
+		<Unit filename="/Users/teodordre/Documents/reps/gomarky/gomarky/source/gm/workbench/counter/counter.h">
+			<Option target="gomarky"/>
 		</Unit>
 		<Unit filename="/Users/teodordre/Documents/reps/gomarky/gomarky/source/main.cpp">
 			<Option target="gomarky"/>

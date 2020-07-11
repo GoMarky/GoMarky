@@ -90,9 +90,17 @@ find_lto(CXX)
 #  gomarky executable  #
 #==========================#
 
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
+
+find_package(Qt5Widgets REQUIRED)
+
+set(CMAKE_AUTOMOC ON)
+set(CMAKE_AUTOUIC ON)
+set(CMAKE_AUTORCC ON)
+
 # Always list the source files explicitly, including headers so that they are listed in the IDE
 # If you need to use files based on a variable value, use target_sources
-add_executable(gomarky source/main.cpp)
+add_executable(gomarky source/main.cpp source/gm/workbench/counter/counter.cpp source/gm/workbench/counter/counter.h)
 
 target_link_libraries(gomarky
     #PUBLIC # Useful for libraries, see https://cmake.org/cmake/help/latest/manual/cmake-buildsystem.7.html for more details about transitive usage requirements.
@@ -123,7 +131,7 @@ endif()
 target_compile_features(gomarky PRIVATE cxx_std_14)
 
 # CMake scripts extensions
-target_set_warnings(gomarky ENABLE ALL AS_ERROR ALL DISABLE Annoying) # Helper that can set default warning flags for you
+# target_set_warnings(gomarky ENABLE ALL AS_ERROR ALL DISABLE Annoying) # Helper that can set default warning flags for you
 target_enable_lto(gomarky optimized) #enable lto if available for non-debug configurations
 copy_dlls_for_debug(gomarky "" "") # Copy dependencies next to the executable (DLLs for example)
 
@@ -182,9 +190,6 @@ if(BP_BUILD_TESTS)
         @ONLY
     )
 endif()
-
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
-find_package(Qt5Widgets REQUIRED)
 
 #############
 ## Doxygen ##
