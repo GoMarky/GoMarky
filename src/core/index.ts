@@ -19,22 +19,22 @@ export * from './utils/mouse';
 export * from './utils/plugins/fps';
 export * from './utils/plugins';
 
-export * from './core/textures/image';
-export * from './core/textures/video';
+export * from './objects/textures/image';
+export * from './objects/textures/video';
 
-export * from './core/geometry/geometry/polygon';
-export * from './core/geometry/geometry/rectangle';
-export * from './core/geometry/geometry/ellipse';
+export * from './objects/geometry/geometry/polygon';
+export * from './objects/geometry/geometry/rectangle';
+export * from './objects/geometry/geometry/ellipse';
 
-export * from './core/geometry/geometry/points/controlpoint';
-export * from './core/geometry/geometry/points/basepoint';
+export * from './objects/geometry/geometry/points/controlpoint';
+export * from './objects/geometry/geometry/points/basepoint';
 
-export * from './core/geometry/container/container';
-export * from './core/geometry/container/containerGroup';
+export * from './objects/geometry/container/container';
+export * from './objects/geometry/container/containerGroup';
 
-export * from './core/geometry/layer/common/layer';
-export * from './core/geometry/layer/common/layerGroup';
-export * from './core/geometry/shape/shape';
+export * from './objects/geometry/layer/common/layer';
+export * from './objects/geometry/layer/common/layerGroup';
+export * from './objects/geometry/shape/shape';
 
-export * from './core/geometry/layer/layer';
-export * from './core/geometry/layer/layerGroup';
+export * from './objects/geometry/layer/layer';
+export * from './objects/geometry/layer/layerGroup';

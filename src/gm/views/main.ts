@@ -1,7 +1,4 @@
-import '@/../loader';
-
 import 'normalize.css/normalize.css';
-import './../../static/styles/main.css';
 import { Disposable } from '@/gm/base/common/lifecycle';
 
 import { ServiceCollection } from '@/gm/platform/instantiation/common/ServiceCollection';
@@ -28,7 +25,7 @@ import { getSingletonServiceDescriptors } from '@/gm/platform/instantiation/comm
 
 declare global {
   interface Window {
-    GoMarky_WIN_CONFIGURATION: Required<IWindowConfiguration>;
+    GOMARKY_WIN_CONFIGURATION: Required<IWindowConfiguration>;
   }
 }
 

@@ -363,25 +363,9 @@ export interface IFileService {
 
   exists(resource: URI): Promise<boolean>;
 
-  readFile(resource: URI, options?: IReadFileOptions): Promise<IFileContent>;
-
-  readFileStream(resource: URI, options?: IReadFileOptions): Promise<IFileStreamContent>;
-
-  writeFile(
-    resource: URI,
-    bufferOrReadableOrStream: Buffer | ReadableStream<Buffer>,
-    options?: IWriteFileOptions
-  ): Promise<IFileStatWithMetadata>;
-
   move(source: URI, target: URI, overwrite?: boolean): Promise<IFileStatWithMetadata>;
 
   copy(source: URI, target: URI, overwrite?: boolean): Promise<IFileStatWithMetadata>;
-
-  createFile(
-    resource: URI,
-    bufferOrReadableOrStream?: Buffer | ReadableStream<Buffer>,
-    options?: ICreateFileOptions
-  ): Promise<IFileStatWithMetadata>;
 
   createFolder(resource: URI): Promise<IFileStatWithMetadata>;
 

@@ -1,21 +1,20 @@
-import { Layer } from '@/gl/gomarky/core/geometry/layer/layer';
-
+import { Geometry } from '@/core/objects/geometry/geometry/geometry';
 import {
-  ControlPoint,
-  Ellipse,
-  GlCoreError,
-  IApplication,
+  Application,
   ICreateGeometryOptions,
   Polygon,
   Rectangle,
   ShapeType,
-} from '@/gl/gomarky';
-import { Container } from '@/gl/gomarky/core/geometry/container/container';
-import { Geometry } from '@/gl/gomarky/core/geometry/geometry/geometry';
+  Ellipse,
+  GlCoreError,
+  Layer,
+  Container,
+  ControlPoint,
+} from '@/core';
 
 function createShape(
   type: ShapeType,
-  app: IApplication,
+  app: Application,
   { startEvent }: ICreateGeometryOptions
 ): Geometry {
   let geometry: Geometry;
@@ -41,7 +40,7 @@ export class Shape extends Layer {
   constructor(
     name = 'Shape',
     private readonly type: ShapeType,
-    app: IApplication,
+    app: Application,
     startEvent?: PIXI.interaction.InteractionEvent
   ) {
     super(name, app);

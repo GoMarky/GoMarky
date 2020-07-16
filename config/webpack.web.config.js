@@ -96,7 +96,7 @@ let webConfig = {
     new MiniCssExtractPlugin({ filename: 'styles.css' }),
     new HtmlWebpackPlugin({
       filename: 'index.html',
-      template: path.resolve(__dirname, '../src/gomarky/templates/index.ejs'),
+      template: path.resolve(__dirname, '../src/gm/index.ejs'),
       /**
        * @description
        *  Fixes bug with process is not defined in index.ejs files

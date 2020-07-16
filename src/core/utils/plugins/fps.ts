@@ -1,15 +1,13 @@
 import * as PIXI from 'pixi.js';
 import { Disposable } from '@/gm/base/common/lifecycle';
-import { IGLPlugin } from '@/gl/gomarky';
-
-import { IApplication } from '@/gl/gomarky/code/application';
+import { Application, IGLPlugin } from '@/core';
 
 export class FPSPlugin extends Disposable implements IGLPlugin {
   private currentFPSInfo: PIXI.Text;
   private _ticker: PIXI.ticker.Ticker;
   private _container: PIXI.Container;
 
-  constructor(private readonly stage: IApplication) {
+  constructor(private readonly stage: Application) {
     super();
   }
 

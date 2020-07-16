@@ -1,13 +1,12 @@
 import { Disposable } from '@/gm/base/common/lifecycle';
-import { IApplication } from '@/gl/gomarky/code/application';
-
-import { calculateAspectRatio } from '@/gl/gomarky/utils/media';
 import { URI } from '@/gm/base/common/uri';
 import {
+  Application,
+  calculateAspectRatio,
   ICreateVideoTextureOptions,
   ISerializedTexture,
   IVideoTexture,
-} from '@/gl/gomarky/base/media';
+} from '@/core';
 
 export class TextureVideo extends Disposable implements IVideoTexture {
   private readonly _texture: PIXI.Texture;
@@ -23,7 +22,7 @@ export class TextureVideo extends Disposable implements IVideoTexture {
     return this._texture;
   }
 
-  constructor(private readonly stage: IApplication, options: ICreateVideoTextureOptions) {
+  constructor(private readonly stage: Application, options: ICreateVideoTextureOptions) {
     super();
 
     this._source = options.resource;

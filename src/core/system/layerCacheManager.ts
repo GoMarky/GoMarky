@@ -1,5 +1,5 @@
 import { Disposable } from '@/gm/base/common/lifecycle';
-import { Layer } from '@/gl/gomarky';
+import { Layer } from '@/core';
 
 export class LayerCacheManager extends Disposable {
   private readonly cachedLayers: WeakSet<Layer> = new WeakSet<Layer>();

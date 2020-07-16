@@ -5,22 +5,19 @@ import { Color, ColorRGBA } from '@/gm/base/color';
 import { generateUuid } from '@/gm/base/common/uuid';
 import { Emitter, Event } from '@/gm/base/common/event';
 
-import { Point, ShapeType, Stage } from '@/gl/gomarky/utils/model';
+import { Point, ShapeType, Stage } from '@/core/utils/model';
 
 import {
   GeometryMoveDirection,
-  IApplication,
+  Application,
   ICreateGeometryOptions,
   IShapeDrawOptions,
   ISerializedGeometry,
   PointLike,
-} from '@/gl/gomarky';
+} from '@/core';
 
-import { getControlPointColors } from '@/gm/code/common/color/color';
-import { ControlPoint } from '@/gl/gomarky/core/geometry/geometry/points/controlpoint';
-import { Container } from '@/gl/gomarky/core/geometry/container/container';
-
-import { GeometryProgrammaticAction } from '@/gm/code/electron-browser/geometry/geometryProgrammaticallyService';
+import { ControlPoint } from '@/core/objects/geometry/geometry/points/controlpoint';
+import { Container } from '@/core/objects/geometry/container/container';
 
 const DEFAULT_CHANGE_GEOMETRY_DELAY = 500;
 
@@ -52,7 +49,7 @@ export abstract class Geometry extends Disposable {
   );
 
   protected activeGeometry: this | PointLike;
-  activePoint = false;
+  public activePoint = false;
   protected activePointHover = false;
   public isDisposed = false;
 
@@ -88,15 +85,9 @@ export abstract class Geometry extends Disposable {
 
   public parent: Container;
 
-  protected constructor(protected readonly app: IApplication, options: ICreateGeometryOptions) {
+  protected constructor(protected readonly app: Application, options: ICreateGeometryOptions) {
     super();
 
-    const { fillColor, lineColor, fillColorHover, lineColorHover } = getControlPointColors();
-
-    this.fillColor = fillColor;
-    this.lineColorHover = lineColorHover;
-    this.lineColor = lineColor;
-    this.fillColorHover = fillColorHover;
     this.container.alpha = 0.5;
     this.container.interactive = true;
     this.container.buttonMode = true;
@@ -381,13 +372,6 @@ export abstract class Geometry extends Disposable {
   protected onDidMoveControlPoint(): void {
     this.hideShadowPoints();
     this.drawStatic();
-  }
-
-  public triggerAction(action: GeometryProgrammaticAction): void {
-    switch (action) {
-      case GeometryProgrammaticAction.EnterEditMode:
-        return this.doDoubleClick();
-    }
   }
 
   public hideAllPoints(): this {

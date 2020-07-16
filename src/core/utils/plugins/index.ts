@@ -1,7 +1,6 @@
 import { Disposable } from '@/gm/base/common/lifecycle';
-import { GlCoreError } from '@/gl/gomarky/utils/errors';
 import { LinkedMap } from '@/gm/base/common/map';
-import { IApplication } from '@/gl/gomarky/code/application';
+import { Application, GlCoreError } from '@/core';
 
 export interface IPluginRegistry {
   register(name: string, Plugin: any): void;
@@ -31,7 +30,7 @@ export interface IGLPlugin {
 export class PluginRegistry extends Disposable implements IPluginRegistry {
   private readonly plugins: LinkedMap<string, IGLPlugin> = new LinkedMap<string, IGLPlugin>();
 
-  constructor(private readonly stage: IApplication) {
+  constructor(private readonly stage: Application) {
     super();
   }
 
@@ -90,8 +89,6 @@ export class PluginRegistry extends Disposable implements IPluginRegistry {
   public destroy(name: string): void {
     const plugin = this.plugins.get(name);
 
-    if (plugin) {
-      plugin.dispose();
-    }
+    void plugin?.dispose();
   }
 }

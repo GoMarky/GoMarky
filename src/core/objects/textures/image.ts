@@ -1,10 +1,13 @@
 import * as PIXI from 'pixi.js';
 import { Disposable } from '@/gm/base/common/lifecycle';
-import { calculateAspectRatio } from '@/gl/gomarky/utils/media';
-
-import { IApplication } from '@/gl/gomarky/code/application';
+import {
+  Application,
+  calculateAspectRatio,
+  ICreateTextureImageOption,
+  ISerializedTexture,
+  ITextureImage,
+} from '@/core';
 import { URI } from '@/gm/base/common/uri';
-import { ICreateTextureImageOption, ISerializedTexture, ITextureImage } from '@/gl/gomarky/base/media';
 
 export class TextureImage extends Disposable implements ITextureImage {
   private readonly _source: URI;
@@ -21,7 +24,7 @@ export class TextureImage extends Disposable implements ITextureImage {
     return this._texture;
   }
 
-  constructor(private readonly stage: IApplication, options: ICreateTextureImageOption) {
+  constructor(private readonly stage: Application, options: ICreateTextureImageOption) {
     super();
 
     this._source = options.source;

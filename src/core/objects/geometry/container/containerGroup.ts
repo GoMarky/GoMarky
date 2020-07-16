@@ -1,5 +1,5 @@
 import { Application } from '@/core/code/application';
-import { AbstractContainer } from '@/core/core/geometry/container/abstractContainer';
+import { AbstractContainer } from '@/core/objects/geometry/container/abstractContainer';
 import { CommonContainer, ISerializedGeometry } from '@/core';
 
 import { Event } from '@/gm/base/common/event';

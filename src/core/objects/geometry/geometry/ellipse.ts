@@ -1,20 +1,19 @@
 import * as PIXI from 'pixi.js';
-
-import { ShapeType, Stage } from '@/gl/gomarky/utils/model';
-import { IApplication } from '@/gl/gomarky/code/application';
 import {
+  Application,
+  ControlPoint,
   ICreateGeometryOptions,
   ISerializedEllipse,
   IShapeDrawOptions,
-} from '@/gl/gomarky/base/geometry';
-import { Geometry } from '@/gl/gomarky/core/geometry/geometry/geometry';
-import { ControlPoint } from '@/gl/gomarky/core/geometry/geometry/points/controlpoint';
-import { toDoubleDimensionArray } from '@/gl/gomarky/core/geometry/geometry/polygon';
+  ShapeType, Stage, toDoubleDimensionArray,
+} from '@/core';
+import { Geometry } from '@/core/objects/geometry/geometry/geometry';
+
 
 export class Ellipse extends Geometry {
   private lastEvent: PIXI.interaction.InteractionEvent | null = null;
 
-  constructor(application: IApplication, options?: ICreateGeometryOptions) {
+  constructor(application: Application, options?: ICreateGeometryOptions) {
     super(application, { startEvent: options?.startEvent });
 
     this.type = ShapeType.Ellipse;

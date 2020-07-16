@@ -8,14 +8,14 @@ import {
   drawDefaultGeometry,
   drawSelectedGeometry,
   Geometry,
-} from '@/core/core/geometry/geometry/geometry';
+} from '@/core/objects/geometry/geometry/geometry';
 
-import { Polygon } from '@/core/core/geometry/geometry/polygon';
-import { Rectangle } from '@/core/core/geometry/geometry/rectangle';
-import { Ellipse } from '@/core/core/geometry/geometry/ellipse';
+import { Polygon } from '@/core/objects/geometry/geometry/polygon';
+import { Rectangle } from '@/core/objects/geometry/geometry/rectangle';
+import { Ellipse } from '@/core/objects/geometry/geometry/ellipse';
 
-import { AbstractContainer } from '@/core/core/geometry/container/abstractContainer';
-import { Shape } from '@/core/core/geometry/shape/shape';
+import { AbstractContainer } from '@/core/objects/geometry/container/abstractContainer';
+import { Shape } from '@/core/objects/geometry/shape/shape';
 import { Application } from '@/core';
 
 export class Container extends AbstractContainer {

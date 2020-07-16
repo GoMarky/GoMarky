@@ -49,7 +49,7 @@ function setElectronEnvironment(): void {
 
   process.env.ELECTRON_DISABLE_SECURITY_WARNINGS = 'true';
 
-  app.whenReady().then(() => {
+  void app.whenReady().then(() => {
     const installExtension = require('electron-devtools-installer');
     installExtension.default(installExtension.VUEJS_DEVTOOLS);
   });

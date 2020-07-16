@@ -1,8 +1,12 @@
-import { CurrentLayerProperty, MaskType, ShapeType } from '@/gl/gomarky';
-import { ISerializedGroupLayer } from '@/gl/gomarky/core/geometry/layer/common/layerGroup';
-import { Layer } from '@/gl/gomarky/core/geometry/layer/layer';
-import { LayerGroup } from '@/gl/gomarky/core/geometry/layer/layerGroup';
 import { GlobalEvent } from '@/gm/base/common/event';
+import {
+  CurrentLayerProperty,
+  ISerializedGroupLayer,
+  Layer,
+  LayerGroup,
+  MaskType,
+  ShapeType,
+} from '@/core';
 
 export interface ISerializedLayer {
   readonly id: string;

@@ -6,7 +6,6 @@ const path = require('path')
 const { dependencies, version } = require('../package.json')
 const webpack = require('webpack')
 
-const BabiliWebpackPlugin = require('babili-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
@@ -28,20 +27,8 @@ let whiteListedModules = ['vue']
 const entries = [
   {
     name: 'main',
-    path: '../src/workbench/entries/workspace/browser/workspacePage.ts'
+    path: '../src/gm/views/main.ts'
   },
-  {
-    name: 'welcome',
-    path: '../src/workbench/entries/welcome/browser/welcomePage.tsx'
-  },
-  {
-    name: 'license',
-    path: '../src/workbench/entries/license/browser/licensePage.ts'
-  },
-  {
-    name: 'settings',
-    path: '../src/workbench/entries/settings/browser/settingsPage.ts',
-  }
 ]
 
 function generateEntries () {
@@ -54,7 +41,7 @@ function generateEntries () {
     html: entries.map((entry) => {
       return new HtmlWebpackPlugin({
         filename: `${entry.name}.html`,
-        template: path.resolve(__dirname, `../src/index.ejs`),
+        template: path.resolve(__dirname, `../src/gm/index.ejs`),
         chunks: [entry.name],
         minify: {
           collapseWhitespace: false,

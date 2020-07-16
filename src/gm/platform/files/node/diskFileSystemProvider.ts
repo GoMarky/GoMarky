@@ -35,9 +35,6 @@ import { close, Dirent, fdatasync, open, read, Stats, write } from 'fs';
 import { isLinux, isWindows } from '@/gm/base/platform';
 
 import { CancellationToken, retry } from '@/gm/base/common/async';
-import { ReadableStreamEvents } from '@/gm/base/common/stream';
-
-import { createReadStream } from '@/gm/platform/files/common/io';
 import { promisify } from 'util';
 import { move } from 'fs-extra';
 
@@ -58,24 +55,24 @@ export interface IDiskFileSystemProviderOptions {
 export class DiskFileSystemProvider extends Disposable {
   private readonly BUFFER_SIZE = this.options?.bufferSize || 64 * 1024;
 
-  private mapHandleToPos: Map<number, number> = new Map();
-  private writeHandles: Set<number> = new Set();
+  private readonly mapHandleToPos: Map<number, number> = new Map();
+  private readonly writeHandles: Set<number> = new Set();
   private canFlush = true;
 
-  private _onDidWatchErrorOccur = this._register(new Emitter<string>());
-  readonly onDidErrorOccur = this._onDidWatchErrorOccur.event;
+  private readonly _onDidWatchErrorOccur = this._register(new Emitter<string>());
+  public readonly onDidErrorOccur = this._onDidWatchErrorOccur.event;
 
-  private _onDidChangeFile = this._register(new Emitter<readonly IFileChange[]>());
-  readonly onDidChangeFile = this._onDidChangeFile.event;
+  private readonly _onDidChangeFile = this._register(new Emitter<readonly IFileChange[]>());
+  public readonly onDidChangeFile = this._onDidChangeFile.event;
 
   constructor(
-    @ILogService private logService: ILogService,
-    private options?: IDiskFileSystemProviderOptions
+    @ILogService private readonly logService: ILogService,
+    private readonly options?: IDiskFileSystemProviderOptions
   ) {
     super();
   }
 
-  onDidChangeCapabilities: Event<void> = Event.None;
+  public onDidChangeCapabilities: Event<void> = Event.None;
 
   protected _capabilities: FileSystemProviderCapabilities | undefined;
   public get capabilities(): FileSystemProviderCapabilities {
@@ -137,25 +134,6 @@ export class DiskFileSystemProvider extends Disposable {
     } catch (error) {
       throw this.toFileSystemProviderError(error);
     }
-  }
-
-  public readFileStream(
-    resource: URI,
-    opts: FileReadStreamOptions,
-    token?: CancellationToken
-  ): ReadableStreamEvents<Uint8Array> {
-    // @ts-ignore
-    const fileStream = createReadStream(
-      this,
-      resource,
-      {
-        ...opts,
-        bufferSize: this.BUFFER_SIZE,
-      },
-      token
-    );
-
-    return fileStream;
   }
 
   public async writeFile(
@@ -310,6 +288,7 @@ export class DiskFileSystemProvider extends Disposable {
         case 'EINVAL':
         case 'EBUSY':
         case 'ENAMETOOLONG':
+          // eslint-disable-next-line no-ex-assign
           error = new Error(
             `Unable to move ${path.basename(fromFilePath)} into ${path.basename(
               path.dirname(toFilePath)
@@ -322,7 +301,7 @@ export class DiskFileSystemProvider extends Disposable {
     }
   }
 
-  async copy(from: URI, to: URI, opts: FileOverwriteOptions): Promise<void> {
+  public async copy(from: URI, to: URI, opts: FileOverwriteOptions): Promise<void> {
     const fromFilePath = this.toFilePath(from);
     const toFilePath = this.toFilePath(to);
 
@@ -339,6 +318,7 @@ export class DiskFileSystemProvider extends Disposable {
         case 'EINVAL':
         case 'EBUSY':
         case 'ENAMETOOLONG':
+          // eslint-disable-next-line no-ex-assign
           error = new Error(
             `Unable to move ${path.basename(fromFilePath)} into ${path.basename(
               path.dirname(toFilePath)
@@ -427,7 +407,7 @@ export class DiskFileSystemProvider extends Disposable {
     }
   }
 
-  async write(
+  public async write(
     fd: number,
     pos: number,
     data: Uint8Array,

@@ -2,11 +2,15 @@ import { Disposable } from '@/gm/base/common/lifecycle';
 import { IWorkspacePage } from '@/gm/code/electron-browser/page/common/page';
 
 import { generateUuid } from '@/gm/base/common/uuid';
-import { Container, IApplication, MaskType, Scene } from '@/gl/gomarky';
-import { LayerGroup } from '@/gl/gomarky/core/geometry/layer/layerGroup';
-
-import { ISerializedLayer } from '@/gl/gomarky/core/geometry/layer/common/layer';
-import { CommonLayer } from '@/gl/gomarky/core/geometry/layer/common/layerGroup';
+import {
+  Application,
+  CommonLayer,
+  Container,
+  ISerializedLayer,
+  LayerGroup,
+  MaskType,
+  Scene,
+} from '@/core';
 
 export enum UpdateTick {
   None,
@@ -50,7 +54,7 @@ export abstract class Layer extends Disposable {
     this._name = name;
   }
 
-  protected constructor(protected _name: string, protected readonly app: IApplication) {
+  protected constructor(protected _name: string, protected readonly app: Application) {
     super();
 
     const isRoot = _name === Scene.RootName;
@@ -58,7 +62,7 @@ export abstract class Layer extends Disposable {
     const rootHook = app.meta.hooks.root;
     const layerHook = app.meta.hooks.layer;
 
-    const proxy_root_handler: ProxyHandler<Layer> = {
+    const proxyRootHandler: ProxyHandler<Layer> = {
       set: (layer, key, value) => {
         (layer as any)[key] = value;
 
@@ -87,7 +91,8 @@ export abstract class Layer extends Disposable {
         return true;
       },
     };
-    const proxy_layer_handler: ProxyHandler<LayerGroup | Layer> = {
+
+    const proxyLayerHandler: ProxyHandler<LayerGroup | Layer> = {
       set: (layer, key, value) => {
         (layer as any)[key] = value;
 
@@ -97,7 +102,7 @@ export abstract class Layer extends Disposable {
       },
     };
 
-    const proxy = new Proxy(this, isRoot ? proxy_root_handler : proxy_layer_handler);
+    const proxy = new Proxy(this, isRoot ? proxyRootHandler : proxyLayerHandler);
 
     this._proxy = proxy;
 

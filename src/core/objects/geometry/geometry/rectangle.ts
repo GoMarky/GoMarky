@@ -1,17 +1,14 @@
 import * as PIXI from 'pixi.js';
-
-import { ShapeType, Stage } from '@/gl/gomarky/utils/model';
-import { IApplication } from '@/gl/gomarky/code/application';
-
+import { Geometry } from '@/core/objects/geometry/geometry/geometry';
 import {
-  IShapeDrawOptions,
-  ISerializedRectangle,
+  Application,
+  ControlPoint,
   ICreateGeometryOptions,
-} from '@/gl/gomarky/base/geometry';
-
-import { Geometry } from '@/gl/gomarky/core/geometry/geometry/geometry';
-import { ControlPoint } from '@/gl/gomarky/core/geometry/geometry/points/controlpoint';
-import { toDoubleDimensionArray } from '@/gl/gomarky/core/geometry/geometry/polygon';
+  ISerializedRectangle,
+  IShapeDrawOptions,
+  ShapeType,
+  Stage, toDoubleDimensionArray,
+} from '@/core';
 
 export class Rectangle extends Geometry {
   private lastEvent: PIXI.interaction.InteractionEvent | null = null;
@@ -20,7 +17,7 @@ export class Rectangle extends Geometry {
     return this.points.length > 1;
   }
 
-  constructor(app: IApplication, options?: ICreateGeometryOptions) {
+  constructor(app: Application, options?: ICreateGeometryOptions) {
     super(app, { startEvent: options?.startEvent });
 
     this.type = ShapeType.Rectangle;
@@ -90,7 +87,7 @@ export class Rectangle extends Geometry {
       fillColor: this.fillColor,
       lineWidth: this.lineWidth,
     }
-  ) {
+  ): void {
     if (this._points[0] && this._points[0]) {
       this.container.clear();
       this.container.lineStyle(options.lineWidth, options.lineColor.digitHex);

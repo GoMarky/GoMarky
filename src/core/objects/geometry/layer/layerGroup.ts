@@ -1,17 +1,19 @@
 import {
+  Application,
   CommonLayer,
   CommonSerializedLayer,
+  ContainerGroup,
   ISerializedGroupLayer,
-} from '@/gl/gomarky/core/geometry/layer/common/layerGroup';
-import { Layer, UpdateTick } from '@/gl/gomarky/core/geometry/layer/layer';
-import { ContainerGroup, IApplication } from '@/gl/gomarky';
+  Layer,
+  UpdateTick,
+} from '@/core';
 
 export class LayerGroup extends Layer {
   private readonly _children: CommonLayer[] = [];
 
   public readonly containerGroup: ContainerGroup;
 
-  constructor(name = 'Group', app: IApplication) {
+  constructor(name = 'Group', app: Application) {
     super(name, app);
 
     this.containerGroup = new ContainerGroup(app);

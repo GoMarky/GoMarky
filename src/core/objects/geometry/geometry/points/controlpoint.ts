@@ -1,16 +1,16 @@
 import * as PIXI from 'pixi.js';
-import { IColorBasedProperties, IPointCreateOptions } from '@/gl/gomarky/base/geometry';
-
-import { Point } from '@/gl/gomarky/utils/model';
 import { Color } from '@/gm/base/color';
-import { getControlPointColors, getShadowPointsColors } from '@/gm/code/common/color/color';
-
-import { BasePoint } from '@/gl/gomarky/core/geometry/geometry/points/basepoint';
-import { Container } from '@/gl/gomarky/core/geometry/container/container';
-import { IApplication } from '@/gl/gomarky';
+import {
+  Application,
+  BasePoint,
+  Container,
+  IColorBasedProperties,
+  IPointCreateOptions,
+  Point,
+} from '@/core';
 
 export class ControlPoint extends BasePoint implements IColorBasedProperties {
-  constructor(app: IApplication, parent: Container, options: IPointCreateOptions) {
+  constructor(app: Application, parent: Container, options: IPointCreateOptions) {
     super(app, parent, options);
 
     this.name = options.name || Point.Control;
@@ -29,31 +29,16 @@ export class ControlPoint extends BasePoint implements IColorBasedProperties {
 
   public set name(name: Point) {
     this.sprite.name = name;
-
-    let getPointColors: () => IColorBasedProperties;
-
-    if (this.name === Point.Control) {
-      getPointColors = getControlPointColors;
-    } else {
-      getPointColors = getShadowPointsColors;
-    }
-
-    const { fillColor, lineColor, fillColorHover, lineColorHover } = getPointColors();
-
-    this.fillColor = fillColor;
-    this.lineColorHover = lineColorHover;
-    this.lineColor = lineColor;
-    this.fillColorHover = fillColorHover;
   }
 
-  private onPointerDown = (): void => {
+  private readonly onPointerDown = (): void => {
     this.draw();
     this.enableListeners();
 
     this.parentGeometry.didControlPointClick.fire(this);
   };
 
-  private onPointerMove = (event: PIXI.interaction.InteractionEvent): void => {
+  private readonly onPointerMove = (event: PIXI.interaction.InteractionEvent): void => {
     const worldPoint = this.app.viewport.screen.toWorld(event.data.global);
 
     this.sprite.x = worldPoint.x;
@@ -69,7 +54,7 @@ export class ControlPoint extends BasePoint implements IColorBasedProperties {
     this.parentGeometry.didMoveControlPoint.fire();
   };
 
-  private onPointerUp = (): void => {
+  private readonly onPointerUp = (): void => {
     this.draw({
       lineColor: this.lineColor,
       fillColor: this.fillColor,
@@ -81,11 +66,11 @@ export class ControlPoint extends BasePoint implements IColorBasedProperties {
     this.parentGeometry.didUpControlPoint.fire();
   };
 
-  private onPointerOver = (): void => {
+  private readonly onPointerOver = (): void => {
     this.parentGeometry.didOverControlPoint.fire();
   };
 
-  private onPointerOut = (): void => {
+  private readonly onPointerOut = (): void => {
     this.parentGeometry.didOutControlPoint.fire();
   };
 

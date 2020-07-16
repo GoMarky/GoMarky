@@ -1,6 +1,4 @@
-import { LayerGroup } from '@/gl/gomarky';
-import { ISerializedLayer } from '@/gl/gomarky/core/geometry/layer/common/layer';
-import { Layer } from '@/gl/gomarky/core/geometry/layer/layer';
+import { ISerializedLayer, Layer, LayerGroup } from '@/core';
 
 export type CommonLayer = Layer | LayerGroup;
 

@@ -1,16 +1,15 @@
 import * as PIXI from 'pixi.js';
-import { Point, ShapeType, Stage } from '@/gl/gomarky/utils/model';
-import { Position } from '@/gm/base/geojson';
-import { IApplication } from '@/gl/gomarky/code/application';
+import { Point, ShapeType, Stage } from '@/core/utils/model';
 
 import {
   ICreateGeometryOptions,
   ISerializedPolygon,
   IShapeDrawOptions,
-} from '@/gl/gomarky/base/geometry';
+} from '@/core/base/geometry';
 
-import { Geometry } from '@/gl/gomarky/core/geometry/geometry/geometry';
-import { ControlPoint } from '@/gl/gomarky/core/geometry/geometry/points/controlpoint';
+import { Geometry } from '@/core/objects/geometry/geometry/geometry';
+import { ControlPoint } from '@/core/objects/geometry/geometry/points/controlpoint';
+import { Application } from '@/core';
 
 export class Polygon extends Geometry {
   private sides: number[][][] = [];
@@ -26,7 +25,7 @@ export class Polygon extends Geometry {
     return this._points;
   }
 
-  constructor(application: IApplication, options?: ICreateGeometryOptions) {
+  constructor(application: Application, options?: ICreateGeometryOptions) {
     super(application, { startEvent: options?.startEvent });
 
     this.type = ShapeType.Polygon;
@@ -198,7 +197,7 @@ export class Polygon extends Geometry {
         (point: ControlPoint) => point.x === pointOne[0] && point.y === pointOne[1]
       );
 
-      const index = this.parent.frame.getChildIndex(firstPoint!.sprite);
+      const index = this.parent.frame.getChildIndex(firstPoint?.sprite as PIXI.DisplayObject);
 
       this.parent.frame.addChildAt(point.sprite, index + 1);
     }
@@ -276,6 +275,6 @@ export class Polygon extends Geometry {
   }
 }
 
-export function toDoubleDimensionArray(points: ControlPoint[]): Position[] {
+export function toDoubleDimensionArray(points: ControlPoint[]): number[][] {
   return points.map((point: ControlPoint) => [point.x, point.y]);
 }

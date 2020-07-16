@@ -4,14 +4,13 @@ import { generateUuid } from '@/gm/base/common/uuid';
 import { Color } from '@/gm/base/color';
 
 import {
+  Application,
+  Container,
   IColorBasedProperties,
   IPointCreateOptions,
   IPointDrawOptions,
-} from '@/gl/gomarky/base/geometry';
-
-import { Container } from '@/gl/gomarky/core/geometry/container/container';
-import { ControlPoint, IApplication } from '@/gl/gomarky';
-import { Geometry } from '@/gl/gomarky/core/geometry/geometry/geometry';
+} from '@/core';
+import { Geometry } from '@/core/objects/geometry/geometry/geometry';
 
 export abstract class BasePoint extends Disposable implements IColorBasedProperties {
   public readonly sprite: PIXI.Sprite = new PIXI.Sprite();
@@ -28,7 +27,7 @@ export abstract class BasePoint extends Disposable implements IColorBasedPropert
   private readonly _zoomListener: IDisposable;
 
   protected constructor(
-    protected readonly app: IApplication,
+    protected readonly app: Application,
     protected _parent: Container,
     options: IPointCreateOptions
   ) {
