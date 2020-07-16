@@ -3,15 +3,9 @@ import { IDisposable } from '@/gm/base/common/lifecycle';
 import { Emitter, Event } from '@/gm/base/common/event';
 
 import { isUndefinedOrNull } from '@/gm/base/common/types';
-import { CancellationToken } from '@/gm/base/common/async';
 import { createDecorator } from '@/gm/platform/instantiation/common/instantiation';
 
-import { ReadableStream, ReadableStreamEvents } from '@/gm/base/common/stream';
-import {
-  FileOperationError,
-  FileOperationResult,
-  IWriteFileOptions,
-} from '@/gm/platform/files/common/fileService';
+import { FileOperationError, FileOperationResult } from '@/gm/platform/files/common/fileService';
 import { startsWithIgnoreCase } from '@/gm/base/common/string';
 
 import { sep } from 'path';
@@ -202,11 +196,6 @@ export interface IFileSystemProvider {
   readFile?(resource: URI): Promise<Uint8Array>;
   writeFile?(resource: URI, content: Uint8Array, opts: FileWriteOptions): Promise<void>;
 
-  readFileStream?(
-    resource: URI,
-    opts: FileReadStreamOptions,
-    token?: CancellationToken
-  ): ReadableStreamEvents<Uint8Array>;
   open?(resource: URI, opts: FileOpenOptions): Promise<number>;
   close?(fd: number): Promise<void>;
   read?(fd: number, pos: number, data: Uint8Array, offset: number, length: number): Promise<number>;
@@ -273,20 +262,6 @@ export function ensureFileSystemProviderError(error?: Error): Error {
   }
 
   return error;
-}
-
-export interface IFileSystemProviderWithFileReadStreamCapability extends IFileSystemProvider {
-  readFileStream(
-    resource: URI,
-    opts: FileReadStreamOptions,
-    token?: CancellationToken
-  ): ReadableStreamEvents<Uint8Array>;
-}
-
-export function hasFileReadStreamCapability(
-  provider: IFileSystemProvider
-): provider is IFileSystemProviderWithFileReadStreamCapability {
-  return !!(provider.capabilities & FileSystemProviderCapabilities.FileReadStream);
 }
 
 export function toFileOperationResult(error: Error): FileOperationResult {
@@ -447,11 +422,11 @@ export class FileOperationEvent {
     public readonly target?: IFileStatWithMetadata
   ) {}
 
-  isOperation(operation: FileOperation.DELETE): boolean;
-  isOperation(
+  public isOperation(operation: FileOperation.DELETE): boolean;
+  public isOperation(
     operation: FileOperation.MOVE | FileOperation.COPY | FileOperation.CREATE
   ): this is { readonly target: IFileStatWithMetadata };
-  isOperation(operation: FileOperation): boolean {
+  public isOperation(operation: FileOperation): boolean {
     return this.operation === operation;
   }
 }
@@ -463,7 +438,7 @@ export class FileChangesEvent {
     this._changes = changes;
   }
 
-  public get changes() {
+  public get changes(): readonly IFileChange[] {
     return this._changes;
   }
 

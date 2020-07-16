@@ -105,13 +105,13 @@ export class CodeWindow extends Disposable implements ICodeWindow {
 
   private static readonly MAX_URL_LENGTH = 2 * 1024 * 1024; // https://cs.chromium.org/chromium/src/url/url_constants.cc?l=32
 
-  private hiddenTitleBarStyle: boolean;
-  private showTimeoutHandle: NodeJS.Timeout;
+  private readonly hiddenTitleBarStyle: boolean;
+  private readonly showTimeoutHandle: NodeJS.Timeout;
 
   private _lastFocusTime: number;
   private _readyState: ReadyState = ReadyState.NONE;
 
-  private windowState: IWindowState;
+  private readonly windowState: IWindowState;
   private representedFilename: string;
 
   private pendingLoadConfig?: IWindowConfiguration;
@@ -561,7 +561,7 @@ export class CodeWindow extends Disposable implements ICodeWindow {
     }
 
     if (!config.openedWorkspace) {
-      return `${base}/welcome.html?config=${encodeURIComponent(JSON.stringify(config))}`;
+      return `${base}/main.html?config=${encodeURIComponent(JSON.stringify(config))}`;
     }
 
     Reflect.deleteProperty(config, 'forcedUrl');

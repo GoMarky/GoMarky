@@ -2,25 +2,13 @@ import { joinPath, URI } from '@/gm/base/common/uri';
 import { createDecorator } from '@/gm/platform/instantiation/common/instantiation';
 import { Barrier } from '@/gm/base/common/async';
 
-import { WorkspaceLabel } from '@/gm/platform/geojson/common/geojson';
 import * as path from 'path';
-import { IFileStatWithMetadata } from '@/gm/platform/files/common/files';
 
 import { IPCChannelError } from '@/gm/platform/ipc/common/ipc';
 import { SingleStorage } from '@/gm/platform/storage/electron-main/storage';
 import { ILocalWorkspaceStorageSchema } from '@/gm/platform/storage/common/schema';
 
 import { IWorkspaceDocument } from '@/gm/code/electron-browser/document/common/workspaceDocument';
-import {
-  ILabelAddedEvent,
-  IWorkspaceAssetsService,
-} from '@/gm/platform/workspace/common/workspaceAssets';
-import { RawAttribute } from '@/gm/platform/attributes/electron-browser/attributes';
-
-export interface IWorkspaceAssetsStorage {
-  labels: WorkspaceLabel[];
-  attributes: RawAttribute[];
-}
 
 export interface IWorkspaceFolderData {
   readonly uri: URI;
@@ -33,7 +21,6 @@ export interface IWorkspaceDatasetFolderData extends IWorkspaceFolderData {
 }
 
 export type IWorkspaceId = string;
-export type CurrentOpenDataset = IFileStatWithMetadata;
 
 export interface IWorkspaceFolder extends IWorkspaceFolderData {
   toResource(relativePath: string): URI;
@@ -43,10 +30,6 @@ export interface IWorkspaceFoldersChangeEvent {
   added: IWorkspaceFolder[];
   removed: IWorkspaceFolder[];
   changed: IWorkspaceFolder[];
-}
-
-export interface IWorkspaceLabelsChangeEvent {
-  added: ILabelAddedEvent;
 }
 
 export interface IRawFileWorkspaceFolder {
@@ -73,8 +56,8 @@ export interface ILabelGeoJSONProperties {
   keyCode?: string;
 }
 
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface IWorkspaceConfiguration {
-  lastEditedTexture: URI;
 }
 
 export interface IWorkspace {
@@ -86,7 +69,6 @@ export interface IWorkspace {
   toJSON(): IWorkspaceData;
 
   readonly storage: SingleStorage<ILocalWorkspaceStorageSchema>;
-  readonly assets: IWorkspaceAssetsService;
 }
 
 export const enum WorkbenchState {
@@ -131,12 +113,6 @@ export interface IWorkspaceRenderer extends WorkspaceBase {
 
   selectedDocument: IWorkspaceDocument;
   documents: IWorkspaceDocument[];
-
-  addLabel(label: WorkspaceLabel): Promise<boolean>;
-  removeLabel(label: WorkspaceLabel): Promise<boolean>;
-  updateLabel(label: WorkspaceLabel): Promise<boolean>;
-
-  loadWorkspaceLabels(): Promise<WorkspaceLabel[]>;
 
   setDescription(description: string): Promise<void>;
   setName(name: string): Promise<void>;

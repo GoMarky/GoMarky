@@ -6,7 +6,10 @@
 
 import { CodeApplication } from '@/gm/code/electron-main/app';
 import { ServiceCollection } from '@/gm/platform/instantiation/common/ServiceCollection';
-import { ILifecycleService, LifecycleService } from '@/gm/platform/lifecycle/electron-main/lifecycle';
+import {
+  ILifecycleService,
+  LifecycleService,
+} from '@/gm/platform/lifecycle/electron-main/lifecycle';
 
 import { ConsoleLogMainService } from '@/gm/platform/log/electron-main/consoleLogMain';
 import { StateService } from '@/gm/platform/state/electron-main/stateService';
@@ -53,7 +56,7 @@ async function createServices(): Promise<ServiceCollection> {
 }
 
 function startup(): void {
-  createServices().then((services: ServiceCollection) => {
+  void createServices().then((services: ServiceCollection) => {
     const logService = services.get(ILogService);
     const lifecycleService = services.get(ILifecycleService);
     const stateService = services.get(IStateService);

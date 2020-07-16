@@ -63,11 +63,6 @@ import { SessionChannel } from '@/gm/platform/session/node/session';
 
 import { IEnvironmentService } from '@/gm/platform/env/node/environmentService';
 import requests from '@/gm/platform/request/electron-main/request/requests';
-import {
-  GlobalAssetsMainService,
-  IGlobalAssetsMainService,
-} from '@/gm/platform/assets/electron-main/globalAssetsService';
-import { GlobalAssetsChannel } from '@/gm/platform/assets/node/assets';
 
 export class CodeApplication {
   private windowsMainService: IWindowsMainService;
@@ -86,7 +81,7 @@ export class CodeApplication {
       app.setAppUserModelId(product.win32AppUserModelId);
     }
 
-    this.initServices(services).then(() => this.openFirstWindow(services));
+    void this.initServices(services).then(() => this.openFirstWindow(services));
   }
 
   private async openFirstWindow(services: ServiceCollection): Promise<void> {
@@ -95,10 +90,6 @@ export class CodeApplication {
     const menubarService = services.get(IMenubarService);
     const menubarChannel = new MenubarChannel(menubarService);
     ipcServer.registerChannel('menubar', menubarChannel);
-
-    const assetsGlobalMainService = services.get(IGlobalAssetsMainService);
-    const assetsChannel = new GlobalAssetsChannel(assetsGlobalMainService);
-    ipcServer.registerChannel('assets', assetsChannel);
 
     const windowsService = services.get(IWindowsService);
     const windowsChannel = new WindowsChannel(windowsService);
@@ -190,9 +181,6 @@ export class CodeApplication {
 
     const historyMainService = new HistoryMainService(stateService);
     services.set(IHistoryMainService, historyMainService);
-
-    const globalAssetsMainService = new GlobalAssetsMainService(storageService, environmentService);
-    services.set(IGlobalAssetsMainService, globalAssetsMainService);
 
     const workspaceMainService = new WorkspacesMainService(
       logService,
