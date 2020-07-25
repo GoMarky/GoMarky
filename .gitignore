@@ -1,58 +1,3 @@
-# Prerequisites
-*.d
-
-# Compiled Object files
-*.slo
-*.lo
-*.o
-*.obj
-
-# Precompiled Headers
-*.gch
-*.pch
-
-# Compiled Dynamic libraries
-*.so
-*.dylib
-*.dll
-
-
-# Fortran module files
-*.mod
-*.smod
-
-# Compiled Static libraries
-*.lai
-*.la
-*.a
-*.lib
-
-# Executables
-*.exe
-*.out
-*.app
-
-.awcache
-
-.DS_Store
-dist/electron/*
-dist/web/*
-build/*
-!build/icons
-coverage
-node_modules/
-build/
-bin/
-npm-debug.log
-npm-debug.log.*
-thumbs.db
-!.gitkeep
-.idea
-.idea/
-*.sqlite
-
-.vscode
-
 #IDEs
 
 .vs
@@ -69,8 +14,6 @@ cmake_install.cmake
 install_manifest.txt
 CTestTestfile.cmake
 Testing/
-
-cmake-build-debug/
 
 # Object files
 *.o
@@ -105,5 +48,4 @@ cmake-build-debug/
 # Debug files
 *.dSYM/
 *.su
-
 

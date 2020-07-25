@@ -1,5 +1,5 @@
 #
-# Main CMakelists for the gomarky project.
+# Main CMakelists for the boilerplate project.
 #
 # It aims to be a template and a CMake reference, and as such is documented as much as possible.
 # While everything might not fit in any project, it should give good defaults and avoid CMake antipatterns.
@@ -81,16 +81,12 @@ set(CMAKE_VISIBILITY_INLINES_HIDDEN 1)
 ##  Project  ##
 ###############
 
-
-
 # Check for LTO support (needs to be after project(...) )
 find_lto(CXX)
 
 #==========================#
 #  gomarky executable  #
 #==========================#
-
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14")
 
 find_package(Qt5Widgets REQUIRED)
 
@@ -100,17 +96,18 @@ set(CMAKE_AUTORCC ON)
 
 # Always list the source files explicitly, including headers so that they are listed in the IDE
 # If you need to use files based on a variable value, use target_sources
-add_executable(gomarky source/main.cpp source/gm/workbench/counter/counter.cpp source/gm/workbench/counter/counter.h)
+add_executable(gomarky source/main.cpp source/counter/counter.cpp source/counter/counter.h)
 
 target_link_libraries(gomarky
     #PUBLIC # Useful for libraries, see https://cmake.org/cmake/help/latest/manual/cmake-buildsystem.7.html for more details about transitive usage requirements.
         #libraries/targets to link when linking this library
         #this will automatically setup the needed flags and dependencies when linking against this target
     PRIVATE # The following libraries are only linked for this target, and its flags/dependencies will not be used when linking against this target
-        general fmt spdlog::spdlog # It is possible to link some libraries for debug or optimized builds only
+        general fmt spdlog::spdlog
+        Qt5::Widgets
+        # It is possible to link some libraries for debug or optimized builds only
         #debug DEBUGLIBS
         #optimized RELEASELIBS
-        Qt5::Widgets
 )
 
 # If you need platform specific files to be compiled and do not want to add a new target for this,
@@ -246,8 +243,8 @@ configure_package_config_file(
 # The following will export the targets under the name ${PROJECT_NAME}_Targets, not install them yet
 # It will then need a call to `install(EXPORT)`
 install(
-    TARGETS
-      gomarky # We can install executables
+    TARGETS 
+	  gomarky # We can install executables
 	  bp_foo      # ... and libraries
 	  fmt         # If we compiled other libraries using add_subdirectory instead of find_package (target is not exported), we'll need to export them too (they are needed for linking) your library.
     EXPORT ${PROJECT_NAME}_Targets

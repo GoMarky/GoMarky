@@ -42,7 +42,7 @@ before_build:
   - cd ..
 
 build:
-  project: build/gomarky.sln
+  project: build/BoilerPlate.sln
   parallel: true
   verbosity: minimal
   

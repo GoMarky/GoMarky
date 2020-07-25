@@ -1,6 +1,6 @@
 list(APPEND CTEST_CUSTOM_COVERAGE_EXCLUDE
   # Exclude list set by cmake
-  @CUSTOM_COVERAGE_EXCLUDE@
+  external
 
   # Exclude try_compile sources from coverage results:
   "/CMakeFiles/CMakeTmp/"
