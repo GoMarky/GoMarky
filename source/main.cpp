@@ -7,6 +7,8 @@
 #include "counter/counter.h"
 #include "QtWidgets"
 
+#include "iostream"
+
 // This should be in the headers
 
 /**
@@ -22,9 +24,20 @@ int main(int argc, char** argv)
     QLabel      label("0");
     QPushButton command("ADD");
 
+    if (label.inherits("QWidget")) {
+        std::cout << "Label inherits from 'QWidget'";
+    }
+
     Counter counter;
 
     label.show();
+
+    QRect labelRect(0, 0, 250, 250);
+
+    label.setGeometry(labelRect);
+
+    label.setWindowTitle("Gomarky window");
+
     command.show();
 
     QObject::connect(&command, SIGNAL(clicked()), &counter, SLOT(slotInc()));
