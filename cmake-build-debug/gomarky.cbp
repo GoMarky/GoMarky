@@ -805,6 +805,12 @@
 		<Unit filename="/Users/teodordre/Documents/reps/gomarky/gomarky/source/additional-sourcefile.cpp">
 			<Option target="gomarky"/>
 		</Unit>
+		<Unit filename="/Users/teodordre/Documents/reps/gomarky/gomarky/source/code/calculator/calculator.cpp">
+			<Option target="gomarky"/>
+		</Unit>
+		<Unit filename="/Users/teodordre/Documents/reps/gomarky/gomarky/source/code/calculator/calculator.h">
+			<Option target="gomarky"/>
+		</Unit>
 		<Unit filename="/Users/teodordre/Documents/reps/gomarky/gomarky/source/counter/counter.cpp">
 			<Option target="gomarky"/>
 		</Unit>
