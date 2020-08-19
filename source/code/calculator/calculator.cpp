@@ -17,11 +17,18 @@ Calculator::Calculator(QWidget* pwgt) : QWidget(pwgt)
         {'0', '.', '=', '+'}
     };
 
+    // Основная сетка
     QGridLayout* ptopLayout = new QGridLayout();
 
+    // Добавляем виджет с текущими значениями
     ptopLayout->addWidget(m_plcd, 0, 0, 1, 4);
-    ptopLayout->addWidget(createButton("CE"), 1, 3);
 
+    // Кнопка для очистки
+    QPushButton* clearEntryButton = new QPushButton("CE");
+    connect(clearEntryButton, SIGNAL(clicked()), SLOT(slotClearButtonClicked()));
+    ptopLayout->addWidget(clearEntryButton, 1, 3);
+
+    // Генерируем сетку значений
     for (int i = 0; i < 4; ++i)
     {
         for (int j = 0; j < 4; ++j)
@@ -63,16 +70,14 @@ void Calculator::calculate()
     m_plcd->display(fResult);
 }
 
+void Calculator::slotClearButtonClicked() {
+    m_stk.clear();
+    m_strDisplay = "";
+    m_plcd -> display("0");
+};
+
 void Calculator::slotButtonClicked() {
     QString str = ((QPushButton*) sender()) -> text();
-
-    if (str == "CE") {
-        m_stk.clear();
-        m_strDisplay = "";
-        m_plcd -> display("0");
-
-        return;
-    }
 
     if (str.contains(QRegExp("[0-9]")))
     {

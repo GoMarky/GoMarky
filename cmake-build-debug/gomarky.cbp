@@ -811,6 +811,12 @@
 		<Unit filename="/Users/teodordre/Documents/reps/gomarky/gomarky/source/code/calculator/calculator.h">
 			<Option target="gomarky"/>
 		</Unit>
+		<Unit filename="/Users/teodordre/Documents/reps/gomarky/gomarky/source/code/progress/progress.cpp">
+			<Option target="gomarky"/>
+		</Unit>
+		<Unit filename="/Users/teodordre/Documents/reps/gomarky/gomarky/source/code/progress/progress.h">
+			<Option target="gomarky"/>
+		</Unit>
 		<Unit filename="/Users/teodordre/Documents/reps/gomarky/gomarky/source/counter/counter.cpp">
 			<Option target="gomarky"/>
 		</Unit>

@@ -96,7 +96,8 @@ set(CMAKE_AUTORCC ON)
 
 # Always list the source files explicitly, including headers so that they are listed in the IDE
 # If you need to use files based on a variable value, use target_sources
-add_executable(gomarky source/main.cpp source/counter/counter.cpp source/counter/counter.h source/code/calculator/calculator.cpp source/code/calculator/calculator.h)
+add_executable(gomarky source/main.cpp source/counter/counter.cpp source/counter/counter.h source/code/calculator/calculator.cpp
+        source/code/calculator/calculator.h source/code/progress/progress.cpp source/code/progress/progress.h )
 
 target_link_libraries(gomarky
     #PUBLIC # Useful for libraries, see https://cmake.org/cmake/help/latest/manual/cmake-buildsystem.7.html for more details about transitive usage requirements.

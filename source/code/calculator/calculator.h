@@ -27,4 +27,6 @@ public:
 
 public slots:
     void slotButtonClicked();
+
+    void slotClearButtonClicked();
 };
