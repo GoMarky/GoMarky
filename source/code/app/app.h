@@ -2,8 +2,10 @@
 // Created by Andrew Slesarenko on 04/07/2021.
 //
 
-#ifndef GOMARKY_APP_H
-#define GOMARKY_APP_H
+class MainApplication
+{
+public:
+    MainApplication();
 
-#endif // GOMARKY_APP_H
-
+    int Run(int argc, char** argv);
+};

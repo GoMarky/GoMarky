@@ -1,9 +1,8 @@
-/** @file main.cpp */
-// The previous block is needed in every file for which you want to generate documentation
-
-#include "app.h"
+#include "code/app/app.h"
 
 int main(int argc, char** argv)
 {
+        MainApplication app;
 
+        return app.Run(argc, argv);
 };

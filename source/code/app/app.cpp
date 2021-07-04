@@ -7,10 +7,18 @@
 class MainApplication
 {
 public:
-    void static run(int argc, char** argv)
-    {
-        QApplication app(argc, argv);
-
-        app.exec();
-    }
+    MainApplication();
+    int Run(int argc, char** argv);
 };
+
+MainApplication::MainApplication() {}
+
+int MainApplication::Run(int argc, char** argv) {
+    QApplication app(argc, argv);
+
+    QLabel welcome_label("Hello my litta GoMarky. For you its just a beginning");
+
+    welcome_label.show();
+
+    return app.exec();
+}
