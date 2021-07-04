@@ -2,7 +2,9 @@
 // Created by Andrew Slesarenko on 04/07/2021.
 //
 
-class MainApplication
+#include "QtWidgets"
+
+class MainApplication : public QObject
 {
 public:
     MainApplication();
