@@ -805,22 +805,10 @@
 		<Unit filename="/Users/teodordre/Documents/reps/gomarky/gomarky/source/additional-sourcefile.cpp">
 			<Option target="gomarky"/>
 		</Unit>
-		<Unit filename="/Users/teodordre/Documents/reps/gomarky/gomarky/source/code/calculator/calculator.cpp">
+		<Unit filename="/Users/teodordre/Documents/reps/gomarky/gomarky/source/code/app/app.cpp">
 			<Option target="gomarky"/>
 		</Unit>
-		<Unit filename="/Users/teodordre/Documents/reps/gomarky/gomarky/source/code/calculator/calculator.h">
-			<Option target="gomarky"/>
-		</Unit>
-		<Unit filename="/Users/teodordre/Documents/reps/gomarky/gomarky/source/code/progress/progress.cpp">
-			<Option target="gomarky"/>
-		</Unit>
-		<Unit filename="/Users/teodordre/Documents/reps/gomarky/gomarky/source/code/progress/progress.h">
-			<Option target="gomarky"/>
-		</Unit>
-		<Unit filename="/Users/teodordre/Documents/reps/gomarky/gomarky/source/counter/counter.cpp">
-			<Option target="gomarky"/>
-		</Unit>
-		<Unit filename="/Users/teodordre/Documents/reps/gomarky/gomarky/source/counter/counter.h">
+		<Unit filename="/Users/teodordre/Documents/reps/gomarky/gomarky/source/code/app/app.h">
 			<Option target="gomarky"/>
 		</Unit>
 		<Unit filename="/Users/teodordre/Documents/reps/gomarky/gomarky/source/foo-impl.h">
