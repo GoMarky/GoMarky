@@ -811,6 +811,18 @@
 		<Unit filename="/Users/teodordre/Documents/reps/gomarky/gomarky/source/code/app/app.h">
 			<Option target="gomarky"/>
 		</Unit>
+		<Unit filename="/Users/teodordre/Documents/reps/gomarky/gomarky/source/code/todo-item/todo-item.cpp">
+			<Option target="gomarky"/>
+		</Unit>
+		<Unit filename="/Users/teodordre/Documents/reps/gomarky/gomarky/source/code/todo-item/todo-item.h">
+			<Option target="gomarky"/>
+		</Unit>
+		<Unit filename="/Users/teodordre/Documents/reps/gomarky/gomarky/source/code/todo-list/todo-list.cpp">
+			<Option target="gomarky"/>
+		</Unit>
+		<Unit filename="/Users/teodordre/Documents/reps/gomarky/gomarky/source/code/todo-list/todo-list.h">
+			<Option target="gomarky"/>
+		</Unit>
 		<Unit filename="/Users/teodordre/Documents/reps/gomarky/gomarky/source/foo-impl.h">
 			<Option target="bp_foo"/>
 		</Unit>
