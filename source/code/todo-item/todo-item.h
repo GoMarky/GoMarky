@@ -9,10 +9,10 @@
 
 #include "QtWidgets"
 
-struct TodoItem
+class TodoItem : public QObject
 {
-    QString name   = "Default";
-    QString author = "Andrew";
+public:
+    TodoItem();
 };
 
 using VectorTodoItem = QVector<TodoItem>;

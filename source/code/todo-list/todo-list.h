@@ -16,5 +16,5 @@ class TodoListService : public QObject
 public:
     TodoListService();
 
-    VectorTodoItem GetTodos() const {};
+    QVBoxLayout* GetLayout() const {};
 };

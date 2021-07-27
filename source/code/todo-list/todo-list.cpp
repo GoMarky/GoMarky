@@ -11,8 +11,10 @@ class TodoListService : public QObject
 {
 public:
     TodoListService();
+    QVBoxLayout* GetLayout() const;
 
-    VectorTodoItem GetTodos() const;
+private:
+    VectorTodoItem& GetTodos() const;
 };
 
 TodoListService::TodoListService()
@@ -22,4 +24,16 @@ TodoListService::TodoListService()
     DefaultTodoList.push_back({"Clean cat shit", "Andrew"});
 }
 
-VectorTodoItem TodoListService::GetTodos() const { return DefaultTodoList; }
+QVBoxLayout* TodoListService::GetLayout() const
+{
+    auto* layout = new QVBoxLayout;
+    auto todos = this->GetTodos();
+
+    for (const auto& todo: todos) {
+
+    }
+
+    return layout;
+}
+
+VectorTodoItem& TodoListService::GetTodos() const { return DefaultTodoList; }

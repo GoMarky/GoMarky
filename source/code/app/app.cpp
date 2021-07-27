@@ -20,22 +20,14 @@ MainApplication::MainApplication() {}
 int MainApplication::Run(int argc, char** argv)
 {
     QApplication app(argc, argv);
-    QLabel       welcome_label("");
+    QWidget      widget;
 
-    welcome_label.setMargin(20);
-    welcome_label.show();
+    TodoListService todoList;
 
-    TodoListService TodoList;
+    QVBoxLayout* todoLayout = todoList.GetLayout();
 
-    VectorTodoItem TodoItems = TodoList.GetTodos();
-
-    for (const auto& item : TodoItems)
-    {
-        string RawItemName   = item.name.toUtf8().constData();
-        string RawAuthorName = item.author.toUtf8().constData();
-
-        welcome_label.setText(item.author);
-    }
+    widget.setLayout(todoLayout);
+    widget.show();
 
     return app.exec();
 }
