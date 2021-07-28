@@ -6,10 +6,9 @@
 
 #include "QtWidgets"
 
-class MainApplication : public QObject
+class MainApplication
 {
 public:
     MainApplication();
-
     int Run(int argc, char** argv);
 };

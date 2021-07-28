@@ -5,7 +5,7 @@
 #include "./../todo-list/todo-list.h"
 #include "QtWidgets"
 
-class MainApplication : public QObject
+class MainApplication
 {
 public:
     MainApplication();

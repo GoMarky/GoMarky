@@ -19,9 +19,9 @@ private:
 
 TodoListService::TodoListService()
 {
-    auto* first_todo  = new TodoItem("Andrew", "Clean cat shit");
-    auto* second_todo = new TodoItem("Victoria", "Wash dishes");
-    auto* third_todo  = new TodoItem("Tatyana", "English language homework");
+    auto* first_todo  = new TodoItem("Clean cat shit", "Andrew");
+    auto* second_todo = new TodoItem("Wash dishes", "Victoria");
+    auto* third_todo  = new TodoItem("English language homework", "Tatyana");
 
     DefaultTodoList.push_back(first_todo);
     DefaultTodoList.push_back(second_todo);
