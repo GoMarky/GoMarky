@@ -4,9 +4,6 @@
 
 #include "./../todo-list/todo-list.h"
 #include "QtWidgets"
-#include "iostream"
-
-using namespace std;
 
 class MainApplication : public QObject
 {

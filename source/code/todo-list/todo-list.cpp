@@ -9,7 +9,6 @@ VectorTodoItem DefaultTodoList;
 
 class TodoListService : public QObject
 {
-    Q_OBJECT
 public:
     TodoListService();
     QVBoxLayout* GetLayout() const;
@@ -22,9 +21,11 @@ TodoListService::TodoListService()
 {
     auto* first_todo  = new TodoItem("Andrew", "Clean cat shit");
     auto* second_todo = new TodoItem("Victoria", "Wash dishes");
+    auto* third_todo  = new TodoItem("Tatyana", "English language homework");
 
     DefaultTodoList.push_back(first_todo);
     DefaultTodoList.push_back(second_todo);
+    DefaultTodoList.push_back(third_todo);
 };
 
 QVBoxLayout* TodoListService::GetLayout() const
