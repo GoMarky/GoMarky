@@ -11,10 +11,15 @@ class TodoListService : public QObject
 {
 public:
     TodoListService();
-    QVBoxLayout* GetLayout() const;
+    QVBoxLayout* GetLayout(QVBoxLayout* root_layout) const;
+
+public slots:
+    void onDidAddButtonClick();
 
 private:
     VectorTodoItem& GetTodos() const;
+
+    QVBoxLayout* layout = new QVBoxLayout;
 };
 
 TodoListService::TodoListService()
@@ -28,20 +33,33 @@ TodoListService::TodoListService()
     DefaultTodoList.push_back(third_todo);
 };
 
-QVBoxLayout* TodoListService::GetLayout() const
+QVBoxLayout* TodoListService::GetLayout(QVBoxLayout* root_layout) const
 {
-    auto* layout = new QVBoxLayout;
-
     auto todos = this->GetTodos();
 
     for (const auto& todo_item : todos)
     {
         QPushButton* todo_widget = todo_item->GetLayout();
-
         layout->addWidget(todo_widget);
     }
 
+    auto* add_button = new QPushButton("Add objective");
+
+    auto* horizontal_layout = new QHBoxLayout;
+
+    horizontal_layout->addWidget(add_button);
+    root_layout->addLayout(horizontal_layout);
+
+    connect(add_button, SIGNAL(clicked()), this, SLOT(onDidAddButtonClick()));
+
     return layout;
+}
+
+void TodoListService::onDidAddButtonClick()
+{
+    auto* new_todo_item = new TodoItem("Pikul", "Sleep");
+
+    layout->addWidget(new_todo_item->GetLayout());
 }
 
 VectorTodoItem& TodoListService::GetTodos() const { return DefaultTodoList; }

@@ -21,9 +21,13 @@ int MainApplication::Run(int argc, char** argv)
 
     TodoListService todoList;
 
-    QVBoxLayout* todoLayout = todoList.GetLayout();
+    auto* root_layout = new QVBoxLayout;
 
-    widget.setLayout(todoLayout);
+    QVBoxLayout* todo_layout = todoList.GetLayout(root_layout);
+
+    root_layout->addLayout(todo_layout);
+
+    widget.setLayout(root_layout);
     widget.show();
 
     return app.exec();

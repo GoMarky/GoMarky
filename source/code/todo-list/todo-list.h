@@ -12,5 +12,8 @@ class TodoListService : public QObject
     Q_OBJECT
 public:
     TodoListService();
-    QVBoxLayout* GetLayout() const;
+    QVBoxLayout* GetLayout(QVBoxLayout* root_layout) const;
+
+public slots:
+    void onDidAddButtonClick();
 };
