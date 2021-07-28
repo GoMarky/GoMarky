@@ -9,10 +9,16 @@
 
 #include "QtWidgets"
 
-class TodoItem : public QObject
+class TodoItem: public QObject
 {
 public:
     TodoItem();
+
+    TodoItem(const QString& new_name, const QString& new_author);
+
+    QPushButton* GetLayout() const;
+
+    void IncreaseTimesDone();
 };
 
-using VectorTodoItem = QVector<TodoItem>;
+using VectorTodoItem = QVector<TodoItem*>;

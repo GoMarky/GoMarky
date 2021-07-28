@@ -19,19 +19,12 @@ private:
 
 TodoListService::TodoListService()
 {
-    DefaultTodoList.push_back({"Homework", "Victoria"});
-    DefaultTodoList.push_back({"House cleaning", "Tatyana"});
-    DefaultTodoList.push_back({"Clean cat shit", "Andrew"});
-}
+    TodoItem first_item = {"Homework", "Victoria"};
+};
 
 QVBoxLayout* TodoListService::GetLayout() const
 {
     auto* layout = new QVBoxLayout;
-    auto todos = this->GetTodos();
-
-    for (const auto& todo: todos) {
-
-    }
 
     return layout;
 }

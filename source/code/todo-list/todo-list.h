@@ -8,13 +8,11 @@
 #endif // GOMARKY_TODO_LIST_H
 
 #include "./../todo-item/todo-item.h"
-#include "QVector"
 #include "QtWidgets"
 
 class TodoListService : public QObject
 {
 public:
     TodoListService();
-
-    QVBoxLayout* GetLayout() const {};
+    QVBoxLayout* GetLayout() const;
 };
