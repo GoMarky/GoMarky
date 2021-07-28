@@ -9,6 +9,8 @@ using namespace std;
 
 class TodoItem : public QObject
 {
+    Q_OBJECT
+
     TodoItem();
 
     TodoItem(const QString& new_name, const QString& new_author);
@@ -22,9 +24,10 @@ public:
 
     QPushButton* GetLayout() const;
 
-    void IncreaseTimesDone();
+public slots:
+    void IncreaseTimesDone() { times_done += 1; };
 
-private:
+protected:
     QString name;
     QString author;
     int     times_done;
@@ -44,13 +47,17 @@ TodoItem::TodoItem(const QString& new_name, const QString& new_author)
     times_done = 0;
 }
 
-void TodoItem::IncreaseTimesDone() { times_done += 1; }
-
 QPushButton* TodoItem::GetLayout() const
 {
-    QPushButton* button = new QPushButton;
+    auto* button = new QPushButton;
 
-    button->setText(this->name);
+    button->setMinimumSize(120, 40);
+
+    auto connection = connect(button, SIGNAL(clicked()), this, SLOT(IncreaseTimesDone()));
+
+    Q_ASSERT(connection);
+
+    button->setText(name + QString::number(times_done));
 
     return button;
 }

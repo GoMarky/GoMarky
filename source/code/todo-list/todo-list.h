@@ -12,6 +12,7 @@
 
 class TodoListService : public QObject
 {
+    Q_OBJECT
 public:
     TodoListService();
     QVBoxLayout* GetLayout() const;
