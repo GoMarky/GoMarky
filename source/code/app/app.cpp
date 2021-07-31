@@ -12,18 +12,17 @@ public:
     int Run(int argc, char** argv);
 };
 
-MainApplication::MainApplication() {}
+MainApplication::MainApplication() = default;
 
 int MainApplication::Run(int argc, char** argv)
 {
     QApplication app(argc, argv);
     QWidget      widget;
 
-    TodoListService todoList;
-
+    auto* todoList = new TodoListService;
     auto* root_layout = new QVBoxLayout;
 
-    QVBoxLayout* todo_layout = todoList.GetLayout(root_layout);
+    QVBoxLayout* todo_layout = todoList->GetLayout(root_layout);
 
     root_layout->addLayout(todo_layout);
 

@@ -11,14 +11,10 @@ class TodoItem : public QObject
     Q_OBJECT
 
 public:
-    TodoItem();
-
     TodoItem(const QString& new_name, const QString& new_author);
 
-    QPushButton* GetLayout() const;
+    QPushButton* GetLayout();
 
 public slots:
     void IncreaseTimesDone();
 };
-
-using VectorTodoItem = QVector<TodoItem*>;
